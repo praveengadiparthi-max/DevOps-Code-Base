@@ -1,21 +1,23 @@
-# Use the latest patched slim Python 3.11 image
-FROM python:3.11.12-slim
+# Base image
+FROM python:3.8
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements first (for caching)
+# Copy the requirements file
 COPY requirements.txt .
 
-# Upgrade pip & wheel and install dependencies
-RUN python3 -m pip install --upgrade pip wheel \
-    && pip install --no-cache-dir -r requirements.txt
+# Install the project dependencies
+RUN pip install -r requirements.txt
 
-# Copy app code
+# Copy the application code into the container
 COPY . .
 
-# Expose app port
+# Expose the port the Flask application will be listening on
 EXPOSE 5000
 
-# Start the app
-CMD ["python3", "app.py"]
+# Set environment variables, if necessary
+# ENV MY_ENV_VAR=value
+
+# Run the Flask application
+CMD ["python", "app.py"]
