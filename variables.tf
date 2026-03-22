@@ -7,4 +7,3 @@ variable "cidr_range_public_subnet" {
 variable "cidr_range_public_subnet_2" {
   default = "10.0.2.0/24"
 }   
-te
