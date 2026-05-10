@@ -1,4 +1,4 @@
-# Terraform files
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.*
@@ -21,10 +21,24 @@ override.tf.json
 *.swo
 *~
 
+# Environment — never commit real keys
+.env
+.env.local
+.env.*.local
+.envrc
+
+# Python virtual environment
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/test_output.pdf
+
+# Node
+frontend/node_modules/
+node_modules/
+frontend/dist/
+
 # OS
 .DS_Store
 Thumbs.db
-
-# Local development
-.env
-.envrc
